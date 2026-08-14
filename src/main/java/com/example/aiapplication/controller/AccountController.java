@@ -19,6 +19,9 @@ public class AccountController {
 
 	@PutMapping("/{id}")
 	public ResponseEntity<Account> updateAccount(@PathVariable Long id, @RequestParam BigDecimal balance) {
+		// comment added.
+		// fixed indentation.
+		// add declaration
 		Account account = accountService.updateAccount(id, balance);
 
 		return ResponseEntity.ok(account);
