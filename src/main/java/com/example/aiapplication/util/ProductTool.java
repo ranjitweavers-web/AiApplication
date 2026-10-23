@@ -19,10 +19,8 @@ public class ProductTool {
 	}
 
 
-	@Tool(
-			name = "findLaptopsUnderPrice",
-			value = "Find laptops that cost less than or equal to the given price"
-	)
+	@Tool(name = "findLaptopsUnderPrice", value = "Find laptops that cost less than or equal to the given price")
+
 	public List<Product> findLaptopsUnderPrice(double maxPrice) {
 		System.out.println("TOOL CALLED: findLaptopsUnderPrice(" + maxPrice + ")");
 		List<Product> result = productService.findLaptopsUnderPrice(maxPrice);
@@ -30,10 +28,8 @@ public class ProductTool {
 		return result;
 	}
 
-	@Tool(
-			name = "findProductsByName",
-			value = "Find products by name"
-	)
+	@Tool(name = "findProductsByName", value = "Find products by name")
+
 	public List<Product> findProductsByName(String name) {
 		System.out.println("TOOL CALLED: findProductsByName(" + name + ")");
 		List<Product> result = productService.findProductsByName(name);
@@ -41,10 +37,8 @@ public class ProductTool {
 		return result;
 	}
 
-	@Tool(
-			name = "findProductsByCategory",
-			value = "Find products by category"
-	)
+	@Tool(name = "findProductsByCategory", value = "Find products by category")
+
 	public List<Product> findProductsByCategory(String category) {
 
 		if (category == null) {
@@ -64,10 +58,8 @@ public class ProductTool {
 		return result;
 	}
 
-	@Tool(
-			name = "getAllProducts",
-			value = "Get all apple products"
-	)
+	@Tool(name = "getAllProducts", value = "Get all apple products")
+
 	public List<Product> getAllProducts() {
 		log.info("TOOL CALLED: get all Apple Products()");
 		System.out.println("TOOL CALLED: get all Apple Products()");

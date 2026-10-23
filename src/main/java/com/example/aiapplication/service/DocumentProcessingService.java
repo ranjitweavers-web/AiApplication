@@ -29,20 +29,14 @@ public class DocumentProcessingService {
 
 		try {
 
-			System.out.println("Processing PDF asynchronously: " + filePath);
-
 			Document document = FileSystemDocumentLoader.loadDocument(filePath, new ApachePdfBoxDocumentParser());
-			System.out.println(document.text());
-
 			List<TextSegment> segments = DocumentSplitters.recursive(500, 50).split(document);
-			System.out.println("PDF split into " + segments.size() + " chunks");
 
 			for (TextSegment segment : segments) {
 
 				var embedding = embeddingModel.embed(segment.text()).content();
 				embeddingStore.add(embedding, segment);
 			}
-			System.out.println("PDF processing completed: " + filePath);
 
 		} catch (Exception e) {
 			System.err.println("PDF processing failed: " + filePath);

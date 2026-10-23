@@ -24,6 +24,8 @@ public class AiController {
 
     @PostMapping("/ask-questions")
     public ResponseEntity<ApiResponse<QueryResponse>> askQuestion(@RequestBody @Valid QueryRequest queryRequest) {
-        return ResponseEntity.ok(new ApiResponse<>(aiService.ask(queryRequest)));
+        QueryResponse resposne = aiService.ask(queryRequest);
+        ApiResponse<QueryResponse> apiResponse = new ApiResponse<>();
+        return ResponseEntity.ok(apiResponse);
     }
 }
