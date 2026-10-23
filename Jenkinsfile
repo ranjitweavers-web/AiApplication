@@ -52,10 +52,11 @@ pipeline {
                     docker stop aiapplication || true
                     docker rm aiapplication || true
 
-                    # Run new container
+                    # Run new container on port 8081 (to avoid conflict with Jenkins on 8080)
                     docker run -d \
                       --name aiapplication \
                       --network host \
+                      -e SERVER_PORT=8081 \
                       ${APP_IMAGE}:latest
                 '''
             }
